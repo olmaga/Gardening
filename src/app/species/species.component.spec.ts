@@ -13,8 +13,7 @@ describe('SpeciesComponent', () => {
       declarations: [
         SpeciesComponent
       ],
-      providers: [
-      ]
+      providers: []
     }).compileComponents();
   }));
 
@@ -35,5 +34,56 @@ describe('SpeciesComponent', () => {
   it('should show id and name', () => {
     expect(element.nativeElement.textContent).toContain('22');
     expect(element.nativeElement.textContent).toContain('Babeli');
+    expect(element.nativeElement.textContent).toContain('more');
   });
+
+  it('details are toggleable', () => {
+    expect(element.nativeElement.querySelector('a').textContent).toContain('more');
+
+    element.nativeElement.querySelector('a').click();
+
+    fixture.detectChanges();
+
+    expect(element.nativeElement.querySelector('a').textContent).toContain('less');
+
+    expect(element.nativeElement.querySelector('.species-details').textContent).toContain('Width');
+    expect(element.nativeElement.querySelector('.species-details')).toBeTruthy();
+
+    element.nativeElement.querySelector('a').click();
+
+    fixture.detectChanges();
+
+    expect(element.nativeElement.querySelector('a').textContent).toContain('more');
+
+    expect(element.nativeElement.querySelector('.species-details')).toBeFalsy();
+  });
+
+  it('assignee is shown correctly if existing/nonexisting', () => {
+    component.detailed = true;
+
+    component.species = {
+      id: '22',
+      name: 'Babeli',
+      width: 315,
+      distance: 5,
+      assignee: 'Oli'
+    };
+
+    fixture.detectChanges();
+
+    expect(element.nativeElement.querySelector('.species-details').textContent).toContain('315');
+    expect(element.nativeElement.querySelector('.species-details').textContent).toContain('Oli');
+
+    component.species = {
+      id: '22',
+      name: 'Babeli',
+      width: 315,
+      distance: 5
+    };
+
+    fixture.detectChanges();
+
+    expect(element.nativeElement.querySelector('.species-details').textContent).toContain('nobody');
+  });
+
 });

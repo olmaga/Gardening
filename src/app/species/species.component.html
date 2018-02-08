@@ -1,1 +1,35 @@
-<div>{{species.id}} {{species.name}}</div>
+<div class="species-info">
+  <div class="species-short">
+    {{species.id}} {{species.name}}
+    <a *ngIf="!detailed" (click)="toggleDetails()">more</a>
+    <a *ngIf="detailed" (click)="toggleDetails()">less</a>
+  </div>
+  <div class="species-details" *ngIf="detailed">
+    <table>
+      <tr>
+        <th>Width:</th>
+        <td>{{species.width}}</td>
+      </tr>
+      <tr>
+        <th>Distance:</th>
+        <td>{{species.distance}}</td>
+      </tr>
+      <tr>
+        <th>Assignee:</th>
+        <td>
+          <span *ngIf="species.assignee">{{species.assignee}}</span>
+          <span *ngIf="!species.assignee">nobody</span>
+        </td>
+      </tr>
+      <tr>
+        <th>Todos:</th>
+        <td>
+          <ul *ngIf="species.todos && species.todos.length > 0">
+            <li *ngFor="let todo of species.todos">{{todo.description}} @ {{todo.due}}</li>
+          </ul>
+          <div *ngIf="!species.todos || species.todos.length === 0">none</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
