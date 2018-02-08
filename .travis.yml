@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- '6'
+before_install:
+- npm install -g @angular/cli
+install: npm install
+branches:
+  only:
+  - master
+after_script:
+- chmod +x publish-gh-pages.sh && ./publish-gh-pages.sh
+deploy:
+  provider: heroku
+  api_key:
+    secure: $API_TOKEN
+  app: gardening
