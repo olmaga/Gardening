@@ -6,12 +6,14 @@ import {AppComponent} from './app.component';
 import {SpeciesListComponent} from './species-list/species-list.component';
 import {SpeciesService} from './species.service';
 import {TodoService} from './todo.service';
+import { SpeciesComponent } from './species/species.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SpeciesListComponent
+    SpeciesListComponent,
+    SpeciesComponent
   ],
   imports: [
     BrowserModule

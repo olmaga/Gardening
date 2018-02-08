@@ -1,10 +1,11 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {SpeciesListComponent} from './species-list.component';
-import {SpecieService} from '../specie.service';
+import {SpeciesService} from '../species.service';
 import {TodoService} from '../todo.service';
 import {AppComponent} from '../app.component';
 import {DebugElement} from '@angular/core';
+import {SpeciesComponent} from '../species/species.component';
 
 describe('SpeciesListComponent', () => {
   let component: SpeciesListComponent;
@@ -15,10 +16,11 @@ describe('SpeciesListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        SpeciesListComponent
+        SpeciesListComponent,
+        SpeciesComponent
       ],
       providers: [
-        SpecieService,
+        SpeciesService,
         TodoService
       ]
     }).compileComponents();

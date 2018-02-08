@@ -1,6 +1,6 @@
 <h2>Available Species:</h2>
 <ul>
-  <li *ngFor="let specie of availableSpecies">
-    {{specie.id}} {{specie.name}}
+  <li *ngFor="let species of availableSpecies">
+    <app-species [species]="species"></app-species>
   </li>
 </ul>

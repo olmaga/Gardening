@@ -2,17 +2,19 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import {SpeciesListComponent} from './species-list/species-list.component';
 import {TodoService} from './todo.service';
-import {SpecieService} from './specie.service';
+import {SpeciesService} from './species.service';
+import {SpeciesComponent} from './species/species.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        SpeciesListComponent
+        SpeciesListComponent,
+        SpeciesComponent
       ],
       providers: [
-        SpecieService,
+        SpeciesService,
         TodoService
       ]
     }).compileComponents();
