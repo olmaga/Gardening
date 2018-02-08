@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Specie} from '../specie';
-import {SpecieService} from '../specie.service';
+import {Species} from '../species';
+import {SpeciesService} from '../species.service';
 
 @Component({
   selector: 'app-species-list',
@@ -9,13 +9,13 @@ import {SpecieService} from '../specie.service';
 })
 export class SpeciesListComponent implements OnInit {
 
-  availableSpecies: Specie[];
+  availableSpecies: Species[];
 
-  constructor(private specieService: SpecieService) {
+  constructor(private speciesService: SpeciesService) {
   }
 
   ngOnInit() {
-    this.availableSpecies = this.specieService.getAvailableSpecies();
+    this.availableSpecies = this.speciesService.getAvailableSpecies();
   }
 
 }

@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Specie} from './specie';
+import {Species} from './species';
 import {TodoService} from './todo.service';
 
 @Injectable()
-export class SpecieService {
+export class SpeciesService {
 
   availableSpecies = [
     {
@@ -23,7 +23,7 @@ export class SpecieService {
   constructor(private todoService: TodoService) {
   }
 
-  getAvailableSpecies(): Specie[] {
+  getAvailableSpecies(): Species[] {
     return this.availableSpecies;
   }
 }

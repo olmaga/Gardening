@@ -5,7 +5,6 @@ import {SpecieService} from '../specie.service';
 import {TodoService} from '../todo.service';
 import {AppComponent} from '../app.component';
 import {DebugElement} from '@angular/core';
-import {By} from '@angular/platform-browser';
 
 describe('SpeciesListComponent', () => {
   let component: SpeciesListComponent;

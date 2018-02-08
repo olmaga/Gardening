@@ -1,6 +1,6 @@
 import {Todo} from './todo';
 
-export interface Specie {
+export interface Species {
   id: string;
   width: number;
   distance: number;

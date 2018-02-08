@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Specie} from './specie';
+import {Species} from './species';
 
 @Injectable()
 export class TodoService {
@@ -7,7 +7,7 @@ export class TodoService {
   constructor() {
   }
 
-  getTodos(specie: Specie) {
+  getTodos(specie: Species) {
 
   }
 }

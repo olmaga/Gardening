@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {SpeciesListComponent} from './species-list/species-list.component';
-import {SpecieService} from './specie.service';
+import {SpeciesService} from './species.service';
 import {TodoService} from './todo.service';
 
 
@@ -17,7 +17,7 @@ import {TodoService} from './todo.service';
     BrowserModule
   ],
   providers: [
-    SpecieService,
+    SpeciesService,
     TodoService
   ],
   bootstrap: [AppComponent]
