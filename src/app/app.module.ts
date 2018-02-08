@@ -1,18 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {SpeciesListComponent} from './species-list/species-list.component';
+import {SpecieService} from './specie.service';
+import {TodoService} from './todo.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SpeciesListComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    SpecieService,
+    TodoService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
