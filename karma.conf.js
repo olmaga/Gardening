@@ -18,13 +18,13 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      reports: [ 'html', 'lcovonly' ],
+      reports: [ 'dots' ],
       fixWebpackSourcePaths: true
     },
     angularCli: {
       environment: 'dev'
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['dots'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
