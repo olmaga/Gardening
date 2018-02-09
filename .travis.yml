@@ -19,6 +19,8 @@ install: npm install
 branches:
   only:
     - master
+script:
+  npm run ci
 after_script:
 - chmod +x publish-gh-pages.sh && ./publish-gh-pages.sh
 deploy:
