@@ -20,7 +20,7 @@ branches:
   only:
     - master
 script:
-  npm run ci
+  ng test --watch=false
 after_script:
 - chmod +x publish-gh-pages.sh && ./publish-gh-pages.sh
 deploy:
