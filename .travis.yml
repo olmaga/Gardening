@@ -23,6 +23,7 @@ script:
   ng test --watch=false
 after_script:
 - chmod +x publish-gh-pages.sh && ./publish-gh-pages.sh
+- ng build --aot -prod
 deploy:
   provider: heroku
   api_key:
