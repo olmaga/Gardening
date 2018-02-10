@@ -20,10 +20,10 @@ branches:
   only:
     - master
 script:
-  ng test --watch=false
+- ng test --watch=false
+- ng build
 after_script:
 - chmod +x publish-gh-pages.sh && ./publish-gh-pages.sh
-- ng build --aot -prod
 deploy:
   provider: heroku
   api_key:
