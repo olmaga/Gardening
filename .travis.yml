@@ -3,15 +3,7 @@ dist: trusty
 language: node_js
 node_js:
   - node
-addons:
-apt:
-  sources:
-    - google-chrome
-  packages:
-    - google-chrome-stable
-    - google-chrome-beta
 before_install:
-  - npm install -g @angular/cli
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
@@ -20,10 +12,8 @@ branches:
   only:
     - master
 script:
-- npm run test --watch=false
+- npm run test
 - npm run build
-after_script:
-- chmod +x publish-gh-pages.sh && ./publish-gh-pages.sh
 deploy:
   provider: heroku
   api_key:
