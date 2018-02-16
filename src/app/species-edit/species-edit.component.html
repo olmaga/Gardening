@@ -24,13 +24,13 @@
       <td>
         <ul class="todos" *ngIf="species.todos && species.todos.length > 0">
           <li *ngFor="let todo of species.todos">
-            <input [(ngModel)]="todo.description" placeholder="Please water now!"/>
+            <input name="description" [(ngModel)]="todo.description" placeholder="Please water now!"/>
             @
             <input type="date" name="due" [(ngModel)]="todo.due" placeholder="whenever" useValueAsDate/>
           </li>
         </ul>
         <div *ngIf="!species.todos || species.todos.length === 0">none</div>
-        <a (click)="addTodo()" [routerLink]="">Add</a>
+        <a (click)="addTodo()" class="add-todo" [routerLink]="">Add</a>
       </td>
     </tr>
   </table>

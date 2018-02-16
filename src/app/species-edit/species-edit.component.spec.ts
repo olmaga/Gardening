@@ -10,6 +10,7 @@ import {APP_BASE_HREF} from '@angular/common';
 import {SpeciesEditComponent} from './species-edit.component';
 import {SpeciesComponent} from '../species/species.component';
 import {of} from 'rxjs/observable/of';
+import {By} from "@angular/platform-browser";
 
 const speciesServiceStub = {
   getSpeciesById: (id: string) => {
@@ -62,6 +63,12 @@ describe('SpeciesEditComponent', () => {
     expect(element.nativeElement.textContent).toContain('11');
   });
   it('shows the todos', () => {
-    expect(element.nativeElement.textContent).toContain('Water it!');
+    expect(fixture.debugElement.queryAll(By.css('li')).length).toBe(1);
+
+    element.nativeElement.querySelector('.add-todo').click();
+
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.queryAll(By.css('li')).length).toBe(2);
   });
 });
