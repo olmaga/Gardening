@@ -1,10 +1,4 @@
 <div>
   <h1 i18n>Garden your ass off!</h1>
-  <app-species-list></app-species-list>
+  <router-outlet></router-outlet>
 </div>
-
-Your language: <span *ngFor="let lang of languages">
-  <span *ngIf="lang.code !== localeId">
-    <a href="/{{lang.code}}/">{{lang.label}}</a> </span>
-  <span *ngIf="lang.code === localeId">{{lang.label}} </span>
-</span>

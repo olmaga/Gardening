@@ -1,0 +1,38 @@
+<div class="species-editor">
+  {{species.id}}
+  <table>
+    <tr>
+      <th>Name:</th>
+      <td><input [(ngModel)]="species.name" placeholder="Carrot"/></td>
+    </tr>
+    <tr>
+      <th>Width:</th>
+      <td><input [(ngModel)]="species.width" placeholder="10"/></td>
+    </tr>
+    <tr>
+      <th>Distance:</th>
+      <td><input [(ngModel)]="species.distance" placeholder="10"/></td>
+    </tr>
+    <tr>
+      <th>Assignee:</th>
+      <td>
+        <input [(ngModel)]="species.assignee" placeholder="10"/>
+      </td>
+    </tr>
+    <tr>
+      <th>Todos:</th>
+      <td>
+        <ul class="todos" *ngIf="species.todos && species.todos.length > 0">
+          <li *ngFor="let todo of species.todos">
+            <input [(ngModel)]="todo.description" placeholder="Please water now!"/>
+            @
+            <input type="date" name="due" [(ngModel)]="todo.due" placeholder="whenever" useValueAsDate/>
+          </li>
+        </ul>
+        <div *ngIf="!species.todos || species.todos.length === 0">none</div>
+        <a (click)="addTodo()" [routerLink]="">Add</a>
+      </td>
+    </tr>
+  </table>
+  <a routerLink="/species">back</a>
+</div>

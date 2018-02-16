@@ -2,6 +2,11 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {DebugElement} from '@angular/core';
 import {SpeciesComponent} from '../species/species.component';
+import {FormsModule} from '@angular/forms';
+import {AppRoutingModule} from '../app-routing.module';
+import {SpeciesListComponent} from '../species-list/species-list.component';
+import {SpeciesEditComponent} from '../species-edit/species-edit.component';
+import {APP_BASE_HREF} from '@angular/common';
 
 describe('SpeciesComponent', () => {
   let component: SpeciesComponent;
@@ -10,10 +15,18 @@ describe('SpeciesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        SpeciesComponent
+      imports: [
+        AppRoutingModule,
+        FormsModule
       ],
-      providers: []
+      declarations: [
+        SpeciesComponent,
+        SpeciesListComponent,
+        SpeciesEditComponent
+      ],
+      providers: [
+        {provide: APP_BASE_HREF, useValue: '/'}
+      ]
     }).compileComponents();
   }));
 

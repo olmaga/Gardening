@@ -6,6 +6,10 @@ import {TodoService} from '../todo.service';
 import {AppComponent} from '../app.component';
 import {DebugElement} from '@angular/core';
 import {SpeciesComponent} from '../species/species.component';
+import {AppRoutingModule} from '../app-routing.module';
+import {APP_BASE_HREF} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {SpeciesEditComponent} from '../species-edit/species-edit.component';
 
 describe('SpeciesListComponent', () => {
   let component: SpeciesListComponent;
@@ -14,14 +18,20 @@ describe('SpeciesListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        AppRoutingModule,
+        FormsModule
+      ],
       declarations: [
         AppComponent,
         SpeciesListComponent,
-        SpeciesComponent
+        SpeciesComponent,
+        SpeciesEditComponent
       ],
       providers: [
         SpeciesService,
-        TodoService
+        TodoService,
+        {provide: APP_BASE_HREF, useValue: '/'}
       ]
     }).compileComponents();
   }));
