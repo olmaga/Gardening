@@ -10,7 +10,7 @@ import {APP_BASE_HREF} from '@angular/common';
 import {SpeciesEditComponent} from './species-edit.component';
 import {SpeciesComponent} from '../species/species.component';
 import {of} from 'rxjs/observable/of';
-import {By} from "@angular/platform-browser";
+import {By} from '@angular/platform-browser';
 
 const speciesServiceStub = {
   getSpeciesById: (id: string) => {
@@ -59,9 +59,11 @@ describe('SpeciesEditComponent', () => {
   it('has a back link', () => {
     expect(element.nativeElement.textContent).toContain('back');
   });
+
   it('shows the id', () => {
     expect(element.nativeElement.textContent).toContain('11');
   });
+
   it('shows the todos', () => {
     expect(fixture.debugElement.queryAll(By.css('li')).length).toBe(1);
 
@@ -71,4 +73,5 @@ describe('SpeciesEditComponent', () => {
 
     expect(fixture.debugElement.queryAll(By.css('li')).length).toBe(2);
   });
+
 });

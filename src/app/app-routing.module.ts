@@ -4,6 +4,7 @@ import {SpeciesListComponent} from './species-list/species-list.component';
 import {SpeciesEditComponent} from './species-edit/species-edit.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: 'species', pathMatch: 'full'},
   {path: 'species', component: SpeciesListComponent},
   {path: 'species/:id', component: SpeciesEditComponent}
 ];
