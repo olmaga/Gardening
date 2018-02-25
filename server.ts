@@ -1,6 +1,11 @@
 // Install express server
+import {initApi} from './backend/api';
+
 const express = require('express');
+const fs = require('fs');
 const app = express();
+
+app.use('/api', initApi());
 
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist'));
@@ -10,10 +15,15 @@ app.use((req, res) => {
 
   // we overwrite the language with the url language
   if (req.path.length >= 3) {
-    lang = req.path.substr(1, 3);
+    lang = req.path.substr(1, 2);
   }
-  res.sendFile(`${__dirname}/dist/${lang}/index.html`);
+
+  if (fs.existsSync(__dirname + '/dist/en/index.html')) {
+    res.sendFile(`${__dirname}/dist/${lang}/index.html`);
+  } else {
+    res.sendFile(`${__dirname}/dist/index.html`);
+  }
+
 });
 
-// Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8084);
